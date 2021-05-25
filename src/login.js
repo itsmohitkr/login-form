@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const encoder = bodyParser.urlencoded();
@@ -25,7 +26,7 @@ connection.connect((error) => {
 })
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(path.join(__dirname,"../public/index.html"));
 })
 
 app.post("/", encoder, (req, res) => {
@@ -43,7 +44,7 @@ app.post("/", encoder, (req, res) => {
 
 // when login successfully
 app.get("/welcome", (req, res) => {
-    res.sendFile(__dirname+"/welcome.html")
+    res.sendFile(path.join(__dirname, "../public/welcome.html"))
 })
 // set port
 
