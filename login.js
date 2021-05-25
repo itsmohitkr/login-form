@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const encoder = bodyParser.urlencoded();
+const port = process.env.PORT || 8000;
 
 
 const app = express();
@@ -47,6 +47,6 @@ app.get("/welcome", (req, res) => {
 })
 // set port
 
-app.listen(4000, () => {
+app.listen(port, () => {
     console.log("server started");
 })
